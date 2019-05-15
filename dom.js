@@ -19,7 +19,7 @@ function addItem(e){
 
 //create del button
     var del=document.createElement('button');
-    del.className="btn btn-danger float-right";
+    del.className="btn btn-danger float-right delete";
     del.appendChild(document.createTextNode('X'));
 
 //Add del to li
@@ -32,5 +32,12 @@ function addItem(e){
 }
 
 function delet(e) {
-      itemList.removeChild(itemList.childNodes[0]);
+      if(e.target.classList.contains("delete"))
+      {
+      	if(confirm('Are u sure?'))
+      	{
+      		var li=e.target.parentElement;
+      		itemList.removeChild(li);
+      	}
+      }
 }
