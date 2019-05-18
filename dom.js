@@ -1,7 +1,10 @@
 var form=document.getElementById("frm");
 var itemList=document.getElementById("items");
+var clear=document.getElementById("clr");
 form.addEventListener('submit',addItem);
+form.addEventListener('submit',addToStorage);
 itemList.addEventListener('click',delet);
+clear.addEventListener('click',clr);
 
 function addItem(e){
 	e.preventDefault();
@@ -31,13 +34,40 @@ function addItem(e){
 	
 }
 
-function delet(e) {
-      if(e.target.classList.contains("delete"))
-      {
-      	if(confirm('Are u sure?'))
-      	{
-      		var li=e.target.parentElement;
-      		itemList.removeChild(li);
-      	}
-      }
+function delet(e){
+          //console.log(e.target);
+          if(e.target.classList.contains('delete'))
+          {
+              if(confirm('Are you sure to delete this task?'))
+              {
+              var li=e.target.parentElement;
+              itemList.removeChild(li);
+              }
+          }
 }
+
+function clr(e) {
+    //console.log(e.target);
+    //var x = e.target.previousElementSibling;
+    //var y = e.target.parentElement;
+    //console.log(x);
+    itemList.innerHTML="";
+}
+
+// //Add to Local storage
+// function addToStorage(e){
+//     var val=document.getElementById('inpt').value;
+//     console.log(val);
+
+//     var tasks;
+//     if(localStorage.getItem('tasks')) 
+//         tasks=JSON.parse(localStorage.getItem('tasks'));
+//     else
+//         tasks=[];
+
+//     localStorage.setItem('tasks',JSON.stringify(tasks));
+//     tasks.push(val);
+//     localStorage.setItem('tasks',JSON.stringify(tasks));
+
+//     e.preventDefault();
+// }
