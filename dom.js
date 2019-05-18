@@ -2,7 +2,6 @@ var form=document.getElementById("frm");
 var itemList=document.getElementById("items");
 var clear=document.getElementById("clr");
 form.addEventListener('submit',addItem);
-form.addEventListener('submit',addToStorage);
 itemList.addEventListener('click',delet);
 clear.addEventListener('click',clr);
 
